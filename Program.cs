@@ -1,4 +1,5 @@
 ﻿namespace BusTicketingSystem;
+using BusTicketingSystem.Bus;
 
 class Program
 {
@@ -13,7 +14,7 @@ class Program
             
             
             Console.WriteLine("1. Create User");
-            Console.WriteLine("2. Show User");
+            Console.WriteLine("2. Show Users");
             Console.WriteLine("3. Exit");
             Console.WriteLine();
         

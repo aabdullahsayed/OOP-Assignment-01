@@ -1,4 +1,4 @@
-﻿namespace BusTicketingSystem;
+﻿namespace BusTicketingSystem.Bus;
 
 public class User
 {
