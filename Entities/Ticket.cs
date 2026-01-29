@@ -7,7 +7,7 @@ public class Ticket
    public string SeatNumber { get; set; }
    public bool IsPaid { get; set; } = false;
    public decimal TotalAmount { get; set; } 
-   
+   public DateTime createdAt { get; set; }
    public Schedule schedule { get; set; }
    
 }
