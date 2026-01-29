@@ -14,7 +14,11 @@ public class BusService:IBusService
         {
             return false;
         }
-        
+
+        foreach (var b in Buses)
+        {
+            if (b.CoachNumber == bus.CoachNumber) return false;
+        }
         
         if (bus.BusClass == "B")
         {
@@ -26,6 +30,7 @@ public class BusService:IBusService
             bus.Seats = 36;
             bus.BusClass = "Economy";
         }
+        else return false;
         
 
         bus.Id = Buses.Count + 1;
