@@ -46,7 +46,7 @@ public class ScheduleUI
         else
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\n[ERROR] Invalid ");
+            Console.WriteLine("\n[ERROR] Invalid(Bus Not Found/Date-Time Issue)");
         }
         
         Console.ResetColor();
