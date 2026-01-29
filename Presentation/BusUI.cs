@@ -33,7 +33,7 @@ public class BusUI
         else
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\n[ERROR] Invalid Coach Number");
+            Console.WriteLine("\n[ERROR] Invalid Coach Number/Class/Bus Already Added");
         }
         
         Console.ResetColor();
