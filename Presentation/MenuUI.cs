@@ -40,7 +40,7 @@ public class MenuUI
         Console.Write("[ SALES ]  ");
         Console.ResetColor();
         Console.WriteLine("8. Book Ticket      9. Find Invoice     10. List All Invoices");
-        Console.WriteLine("           11. Pay Invoice     12. View Tickets");
+        Console.WriteLine("           11. Pay Invoice     12. View Tickets    13. View Tickets By ID");
 
         Console.WriteLine(); 
 
@@ -116,6 +116,10 @@ public class MenuUI
 
                 case "12":
                     ticketUi.ShowTickets();
+                    break;
+                
+                case "13":
+                    ticketUi.ShowTicketById();
                     break;
 
                 case "0":

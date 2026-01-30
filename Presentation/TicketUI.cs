@@ -28,12 +28,14 @@ public class TicketUI
 
         if (invId != -1)
         {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine($"\nInvoice #{invId} generated! Go to 'Pay Invoice' to confirm.");
+            Console.ResetColor();
         }
         else
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Error generating invoice.");
+            Console.WriteLine("[ERROR] Error generating invoice/Seat Locked");
             Console.ResetColor();
         }
  
@@ -50,7 +52,7 @@ public class TicketUI
         {
             if (V.IsPaid) status = "Paid";
             else status = "Pending";
-            Console.WriteLine("Invoice id : "+V.TicketId+ " User ID: "+V.UserId+" Schedule ID: "+V.ScheduleId+"Seat No: "+V.SeatNumber+" Amount: "+V.TotalAmount+" Status : "+status);
+            Console.WriteLine("Invoice id : "+V.TicketId+ " User ID: "+V.UserId+" Schedule ID: "+V.ScheduleId+" Seat No: "+V.SeatNumber+" Amount: "+V.TotalAmount+" Status : "+status);
         }
     }
     
@@ -74,7 +76,9 @@ public class TicketUI
         var inv = _ticketService.GetInvoiceById(id);
         if (inv == null)
         {
-            Console.WriteLine("Seat taken or invalid ID");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("[ERROR] Seat taken or invalid ID");
+            Console.ResetColor();
             return;
         }
 
@@ -95,13 +99,35 @@ public class TicketUI
             }
         }
     }
-
+    
     public void ShowTickets()
     {
         Console.WriteLine("\n--- CONFIRMED TICKETS ---");
+        Console.WriteLine("ID\tSeat\tRoute");
+        Console.WriteLine("------------------------------------------");
         foreach (var t in _ticketService.GetConfirmedTickets())
         {
-            Console.WriteLine($"ID: {t.TicketId} | Seat: {t.SeatNumber} | Route: {t.schedule.DCity} -> {t.schedule.ACity}");
+            Console.WriteLine($"{t.TicketId}\t{t.SeatNumber}\t{t.schedule.DCity} -> {t.schedule.ACity}");Console.WriteLine($"{t.TicketId}\t{t.SeatNumber}\t{t.schedule.DCity} -> {t.schedule.ACity}");
         }
     }
+    
+    public void ShowTicketById()
+    {
+        Console.Write("Enter Ticket ID: ");
+
+        int id = Convert.ToInt32(Console.ReadLine());
+
+        Ticket t = _ticketService.GetTicketById(id);
+
+        if (t != null)
+        {
+            Console.WriteLine($"\nID: {t.TicketId}\tSeat: {t.SeatNumber}\tRoute: {t.schedule.DCity} -> {t.schedule.ACity}");
+        }
+        else
+        {
+            Console.WriteLine("Ticket not found.");
+        }
+    }
+    
+    
 }

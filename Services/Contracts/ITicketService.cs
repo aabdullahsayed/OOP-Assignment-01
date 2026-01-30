@@ -9,5 +9,7 @@ public interface ITicketService
     Ticket GetInvoiceById(int id);
     List<Ticket> GetInvoice();
     bool ConfirmPayment(int invoiceId);
+
+    Ticket GetTicketById(int id);
     List<Ticket> GetConfirmedTickets();
 }

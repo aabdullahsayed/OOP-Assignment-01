@@ -85,6 +85,22 @@ public class TicketService : ITicketService
         _pendingInvoices.Remove(inv); 
         return true;
     }
+    
+    
+    
+    public Ticket GetTicketById(int id)
+    {
+        
+        foreach (Ticket ticket in _confirmedTickets)
+        {
+            if (ticket.TicketId == id)
+            {
+                return ticket;
+            }
+        }
+        
+        return null;
+    }
 
     public List<Ticket> GetConfirmedTickets()
     {
