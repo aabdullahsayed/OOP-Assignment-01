@@ -107,7 +107,7 @@ public class TicketUI
         Console.WriteLine("------------------------------------------");
         foreach (var t in _ticketService.GetConfirmedTickets())
         {
-            Console.WriteLine($"{t.TicketId}\t{t.SeatNumber}\t{t.schedule.DCity} -> {t.schedule.ACity}");Console.WriteLine($"{t.TicketId}\t{t.SeatNumber}\t{t.schedule.DCity} -> {t.schedule.ACity}");
+            Console.WriteLine($"{t.TicketId}\t{t.SeatNumber}\t{t.schedule.DCity} -> {t.schedule.ACity}");
         }
     }
     
