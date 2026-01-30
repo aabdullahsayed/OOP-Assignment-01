@@ -27,11 +27,16 @@ public class TicketUI
         int invId = _ticketService.CreateInvoice(uId, sId, seat);
 
         if (invId != -1)
+        {
             Console.WriteLine($"\nInvoice #{invId} generated! Go to 'Pay Invoice' to confirm.");
+        }
         else
+        {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Error generating invoice.");
             Console.ResetColor();
+        }
+ 
     }
 
     public void ShowInvoices()
